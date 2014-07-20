@@ -3,7 +3,9 @@
 
 
 ## makeCacheMatrix: This function creates a set of functions (list) that will be used by the
-## cachesolver. The input is a matrix (assumed to be invertible) and the functions are:
+## cachesolver. The input is a matrix (assumed to be invertible):
+##      x <- makeCacheMatrix(matrix)
+## The functions returned are:
 ## set: stores the matrix in memory (in the environment namespace)
 ## get: retrieves the matrix
 ## setInverse: stores the inverse of the matrixs in memory (in the environment namespace)
@@ -42,9 +44,12 @@ makeCacheMatrix <- function(x = matrix()) {
 ## If the inverse has already been calculated (and the matrix has not changed), cacheSolve retrieves
 ## the inverse from the cache. 
 
-## The required input to this function is x, the list of functions returned by makeCacheMatrix
+## The required input to this function is x, the list of functions returned by makeCacheMatrix:
+##      > imat <- cacheSolve(x)
 ## However, it also may take a new matrix for those cases where it is desired to recalculate the inverse
-## because the matrix has changed.  The code checks to see if that second argument has been passed and if so,
+## because the matrix has changed:
+##      > imat2 <- cacheSolve(x, newmat)
+## The code checks to see if that second argument has been passed and if so,
 ## compares it to the original matrix. The following scenarios apply:
 ##      The inverse is returned from cache if it exists there and the input matrix has not changed
 ##      The inverse is calculated if it does not already exist in the cache
