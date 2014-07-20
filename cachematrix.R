@@ -16,7 +16,7 @@ makeCacheMatrix <- function(x = matrix()) {
   
         inverse <- NULL
         
-        #constructor for the imput matrix in this environment
+        #constructor for the input matrix in this environment
         set <- function(y) {
                 x <<- y
                 inverse <<- NULL
@@ -24,7 +24,6 @@ makeCacheMatrix <- function(x = matrix()) {
         
         #get the matrix
         get <- function() x
-        
         
         #set the inverse
         setInverse <- function(inv) inverse <<- inv
